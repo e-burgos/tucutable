@@ -5,27 +5,28 @@ import {
   Typography,
   LucideIcons,
   AnchorLink,
-  useTheme,
   CardTitle,
   CodeBlock,
   Alert,
 } from '@e-burgos/tucu-ui';
 import HeroPage from '../../components/HeroPage';
-import { DOCUMENTATION_URL } from '../../utils/constants';
+import TucuTableLogo from '../../assets/images/table-icon.png';
+import { DOCUMENTATION_URL, EXAMPLES_DOCS_URL } from '../../utils/constants';
 
 export function Introduction() {
-  const { mode } = useTheme();
-
   return (
     <div className="space-y-8 sm:space-y-12 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       {/* Hero Section */}
       <HeroPage
-        description="A modern, comprehensive React component library built with TypeScript and Tailwind CSS v4. Features an advanced theming system with 31+ color presets, multi-layered color architecture, and granular control options. Designed for developers who need production-ready components with sophisticated theming capabilities."
+        description="A modern, comprehensive React data table component library built with TypeScript, Tailwind CSS v4, and TanStack Table. Features advanced column management, drag-and-drop reordering, state persistence, and production-ready functionality. Designed for developers who need powerful, customizable data tables with sophisticated features."
         githubButton
         getStartedButton
         backgroundAnimation
         icon={
-          <LucideIcons.Table className="w-24 h-24 text-white filter drop-shadow-sm" />
+          <img
+            src={TucuTableLogo}
+            className="w-48 h-48 text-white filter drop-shadow-sm"
+          />
         }
       />
 
@@ -36,14 +37,14 @@ export function Introduction() {
             tag="h2"
             className="mb-4 text-2xl sm:text-3xl md:text-4xl font-bold"
           >
-            Why Choose Tucu UI?
+            Why Choose Tucutable?
           </Typography>
           <Typography
             tag="p"
             className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
           >
-            Built with modern best practices and designed for real-world
-            applications
+            Built with modern best practices and designed for production-ready
+            data table applications
           </Typography>
         </div>
 
@@ -51,11 +52,11 @@ export function Introduction() {
           {[
             {
               icon: (
-                <LucideIcons.Palette className="w-8 h-8 text-white filter drop-shadow-sm" />
+                <LucideIcons.Table className="w-8 h-8 text-white filter drop-shadow-sm" />
               ),
-              title: 'Advanced Theming System',
+              title: 'Advanced Column Management',
               description:
-                '31+ color presets with multi-layered architecture (brand, secondary, accent, dark, light)',
+                'Drag & drop reordering, resizing, pinning, visibility toggle, and full column control',
               color: 'from-purple-500 via-purple-600 to-pink-500',
             },
             {
@@ -64,7 +65,7 @@ export function Introduction() {
               ),
               title: 'Production Ready',
               description:
-                'Battle-tested components used in real-world applications with TypeScript support',
+                'Built on TanStack Table with TypeScript, optimized performance, and battle-tested in real applications',
               color: 'from-orange-500 via-yellow-500 to-amber-500',
             },
             {
@@ -73,34 +74,34 @@ export function Introduction() {
               ),
               title: 'Developer Friendly',
               description:
-                'Fully typed with excellent IDE support and comprehensive documentation',
+                'Fully typed with excellent IDE support, comprehensive documentation, and intuitive API',
               color: 'from-blue-500 via-cyan-500 to-teal-500',
             },
             {
               icon: (
                 <LucideIcons.Smartphone className="w-8 h-8 text-white filter drop-shadow-sm" />
               ),
-              title: 'Responsive First',
+              title: 'Responsive & Mobile-First',
               description:
-                'Mobile-first approach with seamless responsive behavior across all devices',
+                'Horizontal scrolling, touch-friendly interactions, and seamless behavior across all devices',
               color: 'from-green-500 via-emerald-500 to-teal-500',
             },
             {
               icon: (
                 <LucideIcons.Moon className="w-8 h-8 text-white filter drop-shadow-sm" />
               ),
-              title: 'Dark Mode Native',
+              title: 'Dark & Light Themes',
               description:
-                'Advanced dark/light theme support with dynamic color mixing and smooth transitions',
+                'Native theme support with CSS variables, smooth transitions, and customizable color schemes',
               color: 'from-indigo-500 via-purple-500 to-violet-500',
             },
             {
               icon: (
-                <LucideIcons.Settings className="w-8 h-8 text-white filter drop-shadow-sm" />
+                <LucideIcons.Database className="w-8 h-8 text-white filter drop-shadow-sm" />
               ),
-              title: 'Granular Theme Control',
+              title: 'State Persistence',
               description:
-                'Fine-tune user customization with partial settings control and advanced configuration options',
+                'Automatic state persistence using Zustand with localStorage for column order, sorting, and preferences',
               color: 'from-red-500 via-pink-500 to-rose-500',
             },
             {
@@ -109,16 +110,16 @@ export function Introduction() {
               ),
               title: 'Accessible',
               description:
-                'WCAG 2.1 AA compliant with proper ARIA attributes and keyboard navigation',
+                'WCAG 2.1 AA compliant with proper ARIA labels, keyboard navigation, and screen reader support',
               color: 'from-teal-500 via-cyan-500 to-blue-500',
             },
             {
               icon: (
-                <LucideIcons.Wand2 className="w-8 h-8 text-white filter drop-shadow-sm" />
+                <LucideIcons.GripVertical className="w-8 h-8 text-white filter drop-shadow-sm" />
               ),
-              title: 'Tailwind CSS v4',
+              title: 'Rich Features',
               description:
-                'Latest Tailwind CSS with custom design tokens, dynamic utilities, and performance optimizations',
+                'Sorting, filtering, pagination, row selection, actions menu, expandable rows, and nested tables',
               color: 'from-amber-500 via-yellow-500 to-orange-500',
             },
           ].map((feature, index) => (
@@ -168,37 +169,40 @@ export function Introduction() {
                   },
                   {
                     name: 'TypeScript',
-                    description: 'Type safety and better developer experience',
+                    description:
+                      'Full type safety and excellent developer experience',
                     icon: '📘',
                     color:
                       'bg-gradient-to-br from-indigo-500/10 to-blue-500/10 text-indigo-700 border-indigo-200 dark:from-indigo-400/20 dark:to-blue-400/20 dark:text-indigo-300 dark:border-indigo-700',
                   },
                   {
-                    name: 'Tailwind CSS v4',
+                    name: 'TanStack Table',
                     description:
-                      'Latest version with advanced theming, dynamic utilities, and performance optimizations',
-                    icon: '🎨',
+                      'Powerful headless table library for flexible data table functionality',
+                    icon: '📊',
                     color:
                       'bg-gradient-to-br from-cyan-500/10 to-teal-500/10 text-cyan-700 border-cyan-200 dark:from-cyan-400/20 dark:to-teal-400/20 dark:text-cyan-300 dark:border-cyan-700',
                   },
                   {
-                    name: 'Framer Motion',
-                    description: 'Smooth animations and micro-interactions',
-                    icon: '🎭',
+                    name: 'Tailwind CSS v4',
+                    description:
+                      'Latest version with custom theme variables and utility classes',
+                    icon: '🎨',
                     color:
                       'bg-gradient-to-br from-purple-500/10 to-pink-500/10 text-purple-700 border-purple-200 dark:from-purple-400/20 dark:to-pink-400/20 dark:text-purple-300 dark:border-purple-700',
                   },
                   {
-                    name: 'Nx Monorepo',
-                    description: 'Efficient development and build optimization',
-                    icon: '🏗️',
+                    name: 'Zustand',
+                    description: 'Lightweight state management for persistence',
+                    icon: '🗄️',
                     color:
                       'bg-gradient-to-br from-emerald-500/10 to-green-500/10 text-emerald-700 border-emerald-200 dark:from-emerald-400/20 dark:to-green-400/20 dark:text-emerald-300 dark:border-emerald-700',
                   },
                   {
-                    name: 'React Hook Form',
-                    description: 'Performant forms with minimal re-renders',
-                    icon: '📝',
+                    name: '@dnd-kit',
+                    description:
+                      'Modern drag and drop toolkit for column reordering',
+                    icon: '🔄',
                     color:
                       'bg-gradient-to-br from-orange-500/10 to-red-500/10 text-orange-700 border-orange-200 dark:from-orange-400/20 dark:to-red-400/20 dark:text-orange-300 dark:border-orange-700',
                   },
@@ -224,75 +228,74 @@ export function Introduction() {
         </CardContainer>
       </section>
 
-      {/* Advanced Theming Showcase */}
+      {/* Core Features Showcase */}
       <section className="space-y-8">
         <div className="text-center">
           <Typography
             tag="h2"
             className="mb-4 text-2xl sm:text-3xl md:text-4xl font-bold"
           >
-            Advanced Theming Capabilities
+            Core Features & Capabilities
           </Typography>
           <Typography
             tag="p"
             className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
           >
-            Experience the power of our sophisticated theming system with
-            multi-layered color architecture and granular control
+            Powerful features designed for modern data table applications with
+            advanced customization options
           </Typography>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Color System Demo */}
+          {/* Data Management Features */}
           <CardContainer>
-            <CardTitle title="Color Architecture" className="mt-2 mb-6">
+            <CardTitle title="Data Management" className="mt-2 mb-6">
               <div className="space-y-4">
                 <Typography
                   tag="p"
                   className="text-gray-600 dark:text-gray-400"
                 >
-                  Multi-layered color system supporting 31+ presets with dynamic
-                  theming:
+                  Comprehensive data handling capabilities:
                 </Typography>
 
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     {
-                      layer: 'Brand',
-                      color: 'bg-brand',
-                      desc: 'Primary identity',
+                      feature: 'Sorting',
+                      icon: <LucideIcons.ArrowUpDown className="w-4 h-4" />,
+                      desc: 'Multi-column',
                     },
                     {
-                      layer: 'Secondary',
-                      color: 'bg-secondary',
-                      desc: 'Supporting colors',
+                      feature: 'Filtering',
+                      icon: <LucideIcons.Filter className="w-4 h-4" />,
+                      desc: 'Column & global',
                     },
                     {
-                      layer: 'Accent',
-                      color: 'bg-accent',
-                      desc: 'Action highlights',
+                      feature: 'Pagination',
+                      icon: <LucideIcons.FileText className="w-4 h-4" />,
+                      desc: 'Client & server',
                     },
                     {
-                      layer: 'Dark',
-                      color: 'bg-dark',
-                      desc: 'Dark theme base',
+                      feature: 'Export',
+                      icon: <LucideIcons.Download className="w-4 h-4" />,
+                      desc: 'Data export',
                     },
                     {
-                      layer: 'Light',
-                      color: 'bg-light',
-                      desc: 'Light theme base',
+                      feature: 'Selection',
+                      icon: <LucideIcons.CheckSquare className="w-4 h-4" />,
+                      desc: 'Row selection',
                     },
                   ].map((item, index) => (
                     <div
                       key={index}
                       className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg"
                     >
-                      <div
-                        className={`w-8 h-8 rounded-lg ${item.color} border border-gray-300 dark:border-gray-600`}
-                      ></div>
+                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center text-white">
+                        {item.icon}
+                      </div>
                       <div>
                         <Typography tag="h4" className="font-medium text-sm">
-                          {item.layer}
+                          {item.feature}
                         </Typography>
                         <Typography
                           tag="p"
@@ -310,75 +313,91 @@ export function Introduction() {
                     tag="p"
                     className="text-sm text-purple-700 dark:text-purple-300"
                   >
-                    <LucideIcons.Palette className="w-4 h-4 inline mr-2" />
-                    31+ predefined color presets including modern colors like
-                    Bufus, ThemeDark, and ThemeLight
+                    <LucideIcons.Database className="w-4 h-4 inline mr-2" />
+                    Full support for client-side and server-side data operations
+                    with state persistence
                   </Typography>
                 </div>
               </div>
             </CardTitle>
           </CardContainer>
 
-          {/* Theme Configuration Demo */}
+          {/* Column Management Features */}
           <CardContainer>
-            <CardTitle title="Configuration Flexibility" className="mt-2 mb-6">
+            <CardTitle title="Column Management" className="mt-2 mb-6">
               <div className="space-y-4">
                 <Typography
                   tag="p"
                   className="text-gray-600 dark:text-gray-400"
                 >
-                  Granular control over theme settings with advanced
-                  configuration options:
+                  Advanced column control and customization:
                 </Typography>
 
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                     <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                      <LucideIcons.Settings className="w-4 h-4 text-white" />
+                      <LucideIcons.GripVertical className="w-4 h-4 text-white" />
                     </div>
                     <div>
                       <Typography tag="h4" className="font-medium text-sm">
-                        Partial Settings Control
+                        Drag & Drop Reordering
                       </Typography>
                       <Typography
                         tag="p"
                         className="text-xs text-gray-500 dark:text-gray-400"
                       >
-                        Enable/disable specific theme options per user
+                        Reorder columns via drag and drop with @dnd-kit
                       </Typography>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                     <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-                      <LucideIcons.Zap className="w-4 h-4 text-white" />
+                      <LucideIcons.Move className="w-4 h-4 text-white" />
                     </div>
                     <div>
                       <Typography tag="h4" className="font-medium text-sm">
-                        Dynamic Color Mixing
+                        Column Resizing
                       </Typography>
                       <Typography
                         tag="p"
                         className="text-xs text-gray-500 dark:text-gray-400"
                       >
-                        CSS color-mix() for automatic color variations
+                        Resize columns with min/max constraints and persistence
                       </Typography>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                     <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center">
-                      <LucideIcons.Moon className="w-4 h-4 text-white" />
+                      <LucideIcons.Pin className="w-4 h-4 text-white" />
                     </div>
                     <div>
                       <Typography tag="h4" className="font-medium text-sm">
-                        Persistent Settings
+                        Column Pinning
                       </Typography>
                       <Typography
                         tag="p"
                         className="text-xs text-gray-500 dark:text-gray-400"
                       >
-                        Automatic localStorage integration for user preferences
+                        Pin columns to left or right for better data visibility
+                      </Typography>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                    <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-violet-500 rounded-lg flex items-center justify-center">
+                      <LucideIcons.Eye className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <Typography tag="h4" className="font-medium text-sm">
+                        Visibility Toggle
+                      </Typography>
+                      <Typography
+                        tag="p"
+                        className="text-xs text-gray-500 dark:text-gray-400"
+                      >
+                        Show/hide columns dynamically with persistent state
                       </Typography>
                     </div>
                   </div>
@@ -389,8 +408,9 @@ export function Introduction() {
                     tag="p"
                     className="text-sm text-blue-700 dark:text-blue-300"
                   >
-                    <LucideIcons.Code className="w-4 h-4 inline mr-2" />
-                    Full TypeScript support with Zustand state management
+                    <LucideIcons.Save className="w-4 h-4 inline mr-2" />
+                    All column preferences are automatically persisted using
+                    Zustand with localStorage
                   </Typography>
                 </div>
               </div>
@@ -408,7 +428,7 @@ export function Introduction() {
                 tag="p"
                 className="text-base sm:text-lg text-gray-600 dark:text-gray-300"
               >
-                Get up and running with Tucu UI in minutes:
+                Get up and running with Tucutable in minutes:
               </Typography>
 
               <div className="space-y-6">
@@ -420,54 +440,76 @@ export function Introduction() {
                   >
                     1. Installation
                   </Typography>
+                  <CodeBlock
+                    language="bash"
+                    code={`npm install @e-burgos/tucutable
+# or
+pnpm install @e-burgos/tucutable`}
+                  />
                 </div>
 
-                {/* Usage Example */}
+                {/* Import Styles */}
                 <div className="space-y-3">
                   <Typography
                     tag="h4"
                     className="font-semibold text-gray-900 dark:text-white"
                   >
-                    2. Basic Usage
+                    2. Import Styles
                   </Typography>
+                  <CodeBlock
+                    language="css"
+                    code={`/* In your main CSS file */
+@import '@e-burgos/tucutable/styles';`}
+                  />
                   <Alert variant="info" dismissible={false}>
                     <Typography
                       tag="p"
                       className="text-sm text-gray-600 dark:text-gray-400"
                     >
-                      This example shows how to use the Basic Usage. This
-                      implementation is ideal for apps that need a layout and
-                      navigation all in one place.
+                      Tucutable includes a complete Tailwind CSS v4 setup. No
+                      additional Tailwind CSS installation required.
                     </Typography>
                   </Alert>
                 </div>
-                {/* Usage Example */}
+
+                {/* Basic Usage */}
                 <div className="space-y-3">
                   <Typography
                     tag="h4"
                     className="font-semibold text-gray-900 dark:text-white"
                   >
-                    3. Basic Usage with Custom Router
+                    3. Basic Usage
                   </Typography>
-                  <Alert variant="info" dismissible={false}>
-                    <Typography
-                      tag="p"
-                      className="text-sm text-gray-600 dark:text-gray-400"
-                    >
-                      This example shows how to use the Basic Usage with Custom
-                      Router. This implementation is ideal for apps that need
-                      custom routes and layouts.
-                    </Typography>
-                  </Alert>
-                </div>
-                {/* Live Demo */}
-                <div className="space-y-3">
-                  <Typography
-                    tag="h4"
-                    className="font-semibold text-gray-900 dark:text-white"
-                  >
-                    3. Live Demo
-                  </Typography>
+                  <CodeBlock
+                    language="tsx"
+                    code={`import { DataTable, TanstackTable } from '@e-burgos/tucutable';
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+const columns: TanstackTable.ColumnDef<User>[] = [
+  { accessorKey: 'name', header: 'Name' },
+  { accessorKey: 'email', header: 'Email' },
+];
+
+const data: User[] = [
+  { id: '1', name: 'John Doe', email: 'john@example.com' },
+  { id: '2', name: 'Jane Smith', email: 'jane@example.com' },
+];
+
+function MyTable() {
+  return (
+    <DataTable
+      tableId="users-table"
+      data={data}
+      columns={columns}
+    />
+  );
+}`}
+                  />
                 </div>
               </div>
             </div>
@@ -475,21 +517,20 @@ export function Introduction() {
         </CardContainer>
       </section>
 
-      {/* Component Categories */}
+      {/* Feature Categories */}
       <section className="space-y-8">
         <div className="text-center">
           <Typography
             tag="h2"
             className="mb-4 text-2xl sm:text-3xl md:text-4xl font-bold"
           >
-            Component Overview
+            Feature Overview
           </Typography>
           <Typography
             tag="p"
             className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
           >
-            Explore our comprehensive collection of components organized by
-            category
+            Explore the comprehensive features and capabilities of Tucutable
           </Typography>
         </div>
 
@@ -497,79 +538,80 @@ export function Introduction() {
           {[
             {
               icon: (
-                <LucideIcons.Layout className="w-6 h-6 text-white filter drop-shadow-sm" />
+                <LucideIcons.Table className="w-6 h-6 text-white filter drop-shadow-sm" />
               ),
-              title: 'Layout',
-              description: 'Containers, grids, and structural components',
-              count: '15+',
+              title: 'Data Display',
+              description: 'Render tabular data with customizable columns',
+              count: 'Core',
               bgColor: 'bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg',
             },
             {
               icon: (
-                <LucideIcons.Navigation className="w-6 h-6 text-white filter drop-shadow-sm" />
+                <LucideIcons.ArrowUpDown className="w-6 h-6 text-white filter drop-shadow-sm" />
               ),
-              title: 'Navigation',
-              description: 'Menus, tabs, breadcrumbs, and navigation',
-              count: '8+',
+              title: 'Sorting',
+              description: 'Single and multi-column sorting with persistence',
+              count: 'Advanced',
               bgColor:
                 'bg-gradient-to-br from-green-500 to-emerald-500 shadow-lg',
             },
             {
               icon: (
-                <LucideIcons.FileText className="w-6 h-6 text-white filter drop-shadow-sm" />
+                <LucideIcons.Filter className="w-6 h-6 text-white filter drop-shadow-sm" />
               ),
-              title: 'Forms',
-              description: 'Inputs, selectors, validation utilities',
-              count: '18+',
+              title: 'Filtering',
+              description: 'Column-level and global search functionality',
+              count: 'Advanced',
               bgColor:
                 'bg-gradient-to-br from-purple-500 to-violet-500 shadow-lg',
             },
             {
               icon: (
-                <LucideIcons.MessageCircle className="w-6 h-6 text-white filter drop-shadow-sm" />
+                <LucideIcons.FileText className="w-6 h-6 text-white filter drop-shadow-sm" />
               ),
-              title: 'Feedback',
-              description: 'Alerts, modals, notifications, loading',
-              count: '10+',
+              title: 'Pagination',
+              description: 'Client-side, server-side, and manual pagination',
+              count: 'Core',
               bgColor:
                 'bg-gradient-to-br from-orange-500 to-amber-500 shadow-lg',
             },
             {
               icon: (
-                <LucideIcons.BarChart className="w-6 h-6 text-white filter drop-shadow-sm" />
+                <LucideIcons.GripVertical className="w-6 h-6 text-white filter drop-shadow-sm" />
               ),
-              title: 'Data Display',
-              description: 'Tables, cards, lists, visualization',
-              count: '12+',
+              title: 'Column Management',
+              description: 'Reorder, resize, pin, and toggle visibility',
+              count: 'Advanced',
               bgColor: 'bg-gradient-to-br from-red-500 to-pink-500 shadow-lg',
             },
             {
               icon: (
-                <LucideIcons.MousePointer className="w-6 h-6 text-white filter drop-shadow-sm" />
+                <LucideIcons.CheckSquare className="w-6 h-6 text-white filter drop-shadow-sm" />
               ),
-              title: 'Interactive',
-              description: 'Buttons, dropdowns, tooltips, controls',
-              count: '22+',
+              title: 'Row Features',
+              description: 'Selection, actions, expandable rows, nested tables',
+              count: 'Advanced',
               bgColor:
                 'bg-gradient-to-br from-indigo-500 to-purple-500 shadow-lg',
             },
             {
               icon: (
-                <LucideIcons.Coins className="w-6 h-6 text-white filter drop-shadow-sm" />
+                <LucideIcons.Download className="w-6 h-6 text-white filter drop-shadow-sm" />
               ),
-              title: 'Blockchain',
-              description: 'Web3 components for DeFi applications',
-              count: '8+',
+              title: 'Export',
+              description: 'Export data with formatting and headers',
+              count: 'Core',
               bgColor:
                 'bg-gradient-to-br from-green-500 to-emerald-500 shadow-lg',
             },
             {
               icon: (
-                <LucideIcons.Sparkles className="w-6 h-6 text-white filter drop-shadow-sm" />
+                <LucideIcons.Settings className="w-6 h-6 text-white filter drop-shadow-sm" />
               ),
-              title: 'Utilities',
-              description: 'Hooks, helpers, theme utilities, and functions',
-              count: '20+',
+              title: 'Customization',
+              description:
+                'Extensive props, styling, and configuration options',
+              count: 'Core',
               bgColor: 'bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg',
             },
           ].map((category, index) => (
@@ -626,14 +668,15 @@ export function Introduction() {
                     <li className="flex items-center gap-3">
                       <LucideIcons.Check className="w-5 h-5 text-green-500 flex-shrink-0" />
                       <span className="text-sm">
-                        Advanced theming with 31+ color presets and
-                        multi-layered architecture
+                        Complete component API with 26+ props and detailed
+                        examples
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <LucideIcons.Check className="w-5 h-5 text-green-500 flex-shrink-0" />
                       <span className="text-sm">
-                        Component API with detailed props and examples
+                        Advanced column management with drag & drop, resizing,
+                        and pinning
                       </span>
                     </li>
                   </ul>
@@ -641,14 +684,15 @@ export function Introduction() {
                     <li className="flex items-center gap-3">
                       <LucideIcons.Check className="w-5 h-5 text-green-500 flex-shrink-0" />
                       <span className="text-sm">
-                        Advanced form handling with validation
+                        State persistence with Zustand and localStorage
+                        integration
                       </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <LucideIcons.Check className="w-5 h-5 text-green-500 flex-shrink-0" />
                       <span className="text-sm">
-                        Granular theme configuration and user preference
-                        management
+                        Customization options including theming, styling, and
+                        behavior configuration
                       </span>
                     </li>
                   </ul>
@@ -663,12 +707,7 @@ export function Introduction() {
                     </AnchorLink>
                   </Button>
                   <Button variant="ghost" size="medium">
-                    <AnchorLink
-                      to={
-                        'https://main--683712ba90eaad206f988c65.chromatic.com/?path=/story/3-ui-components-auth-forgetpasswordform--default'
-                      }
-                      target="_blank"
-                    >
+                    <AnchorLink to={`${EXAMPLES_DOCS_URL}`} target="_blank">
                       <div className="flex justify-center items-center">
                         <LucideIcons.Code className="w-4 h-4 mr-2" />
                         View Examples

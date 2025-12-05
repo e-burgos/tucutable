@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { LucideIcons, type AppRoutesMenuItem } from '@e-burgos/tucu-ui';
 import { Introduction } from '../pages/introduction';
-import { ThemingGuide } from '../pages/ThemingGuide';
+import { BasicUsage } from '../pages/basic-usage/index';
 
 export const useMenuItems = () => {
   const menuItems: AppRoutesMenuItem[] = useMemo(
@@ -13,10 +13,10 @@ export const useMenuItems = () => {
         component: <Introduction />,
       },
       {
-        name: 'Theming',
-        href: '/theming-guide',
-        icon: <LucideIcons.Paintbrush />,
-        component: <ThemingGuide />,
+        name: 'Basic Usage',
+        href: '/basic-usage',
+        icon: <LucideIcons.Table />,
+        component: <BasicUsage />,
       },
     ],
     []
