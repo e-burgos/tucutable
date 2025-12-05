@@ -1,0 +1,420 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Banner from '../../../assets/images/logos/tucu-ui-logo.png';
+
+<Meta title="DOCUMENTATION/Introduction" />
+
+<div className="header">
+  <img src={Banner} alt="Tucutable" />
+</div>
+
+# Welcome to Tucutable
+
+A modern, comprehensive React data table component library built with TypeScript, Tailwind CSS, and TanStack Table. Designed for creating production-ready data tables with advanced features like sorting, filtering, pagination, column management, drag-and-drop, and more.
+
+## 🌟 Key Features
+
+### **Core Functionality**
+
+- ✅ **Data Display** - Render tabular data with customizable columns and cell renderers
+- ✅ **Sorting** - Single and multi-column sorting with persistent state
+- ✅ **Filtering** - Column-level filtering and global search
+- ✅ **Pagination** - Client-side, server-side, and manual pagination support
+- ✅ **Column Management** - Visibility toggle, reordering (drag & drop), resizing, and pinning
+- ✅ **Row Features** - Selection (checkbox/radio), actions menu, expandable rows, nested tables
+- ✅ **State Persistence** - Automatic state persistence using Zustand with localStorage
+- ✅ **Export Functionality** - Export cell values and headers with numeric/percentage formatting
+
+### **Advanced Features**
+
+- 🎨 **Theming** - Dark/light theme support with CSS variables
+- ♿ **Accessibility** - ARIA labels, keyboard navigation, WCAG 2.1 AA compliant
+- ⚡ **Performance** - Memoization, lazy loading, efficient re-renders
+- 🎯 **Customization** - Extensive prop system for styling and behavior
+- 🔄 **Drag & Drop** - Reorder columns via drag and drop using `@dnd-kit`
+- 📱 **Responsive** - Mobile-first design with horizontal scrolling
+- 🎨 **Tailwind CSS v4** - Complete Tailwind CSS v4 integration with custom theme
+
+## 🔧 Core Technology Stack
+
+Built on industry-leading libraries for maximum reliability:
+
+- **[React 18+](https://react.dev/)** - Modern React with hooks and concurrent features
+- **[TypeScript](https://www.typescriptlang.org/)** - Full type safety and excellent DX
+- **[TanStack Table](https://tanstack.com/table)** - Powerful headless table library
+- **[Tailwind CSS v4](https://tailwindcss.com/)** - Complete Tailwind v4 integration with custom utilities
+- **[Zustand](https://zustand-demo.pmnd.rs/)** - Lightweight state management for persistence
+- **[@dnd-kit](https://dndkit.com/)** - Modern drag and drop toolkit for column reordering
+
+## 📦 Installation
+
+```bash
+npm install @e-burgos/tucutable
+
+// or with pnpm
+
+pnpm install @e-burgos/tucutable
+```
+
+### Import Tucutable Styles
+
+Add the following import to your main CSS file (usually `index.css` or `main.css`) to include all Tucutable styles and Tailwind CSS utilities:
+
+```css
+@import '@e-burgos/tucutable/styles';
+```
+
+**Note:** Tucutable includes a complete Tailwind CSS v4 setup with all utilities pre-configured. No additional Tailwind CSS installation or configuration is required.
+
+### Theme Customization
+
+Tucutable supports advanced color theming with CSS variables:
+
+```css
+:root {
+  --color-table-primary: #2196f3; /* Primary color */
+  --color-table-secondary: #662dff; /* Secondary color */
+  --color-table-primary-text: #ffffff; /* Primary text color */
+  --color-table-row-bg: #1a1c20; /* Row background */
+  --color-table-header-bg: #2a2d31; /* Header background */
+  /* ... and many more */
+}
+```
+
+## 🚀 Quick Start
+
+### **Basic Usage**
+
+```tsx
+import { DataTable, TanstackTable } from '@e-burgos/tucutable';
+
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
+
+const columns: TanstackTable.ColumnDef<User>[] = [
+  {
+    accessorKey: 'name',
+    header: 'Name',
+  },
+  {
+    accessorKey: 'email',
+    header: 'Email',
+  },
+  {
+    accessorKey: 'role',
+    header: 'Role',
+  },
+];
+
+function UserTable() {
+  const data: User[] = [
+    { id: '1', name: 'John Doe', email: 'john@example.com', role: 'Admin' },
+    { id: '2', name: 'Jane Smith', email: 'jane@example.com', role: 'User' },
+    { id: '3', name: 'Bob Johnson', email: 'bob@example.com', role: 'User' },
+  ];
+
+  return <DataTable tableId="users-table" data={data} columns={columns} />;
+}
+```
+
+### **With Sorting and Pagination**
+
+```tsx
+import { DataTable, TanstackTable } from '@e-burgos/tucutable';
+import { useState } from 'react';
+
+function AdvancedTable() {
+  const [sorting, setSorting] = useState<TanstackTable.SortingState>([]);
+
+  return (
+    <DataTable
+      tableId="advanced-table"
+      data={data}
+      columns={columns}
+      enableMultiSort={true}
+      onSortModelChange={setSorting}
+      pagination={{
+        showPagination: true,
+        pageSize: 10,
+        rowsInfo: true,
+      }}
+    />
+  );
+}
+```
+
+### **With Row Actions**
+
+```tsx
+import { DataTable, IRowActions } from '@e-burgos/tucutable';
+
+const rowActions: IRowActions<User>[] = [
+  {
+    action: 'edit',
+    label: () => 'Edit User',
+    onClick: (row) => handleEdit(row.original),
+  },
+  {
+    action: 'delete',
+    label: () => 'Delete User',
+    onClick: (row) => handleDelete(row.original),
+    showOptions: (row) => row.original.role !== 'Admin',
+  },
+  {
+    action: 'view',
+    label: () => 'View Details',
+    onClick: (row) => handleView(row.original),
+  },
+];
+
+<DataTable
+  tableId="users-with-actions"
+  data={data}
+  columns={columns}
+  rowActions={rowActions}
+/>;
+```
+
+### **With Row Selection**
+
+```tsx
+import { DataTable, IRowSelection } from '@e-burgos/tucutable';
+
+const rowSelection: IRowSelection<User> = {
+  type: 'checkbox',
+  getSelection: (selectedRows) => {
+    console.log('Selected rows:', selectedRows);
+  },
+};
+
+<DataTable
+  tableId="users-with-selection"
+  data={data}
+  columns={columns}
+  rowSelection={rowSelection}
+/>;
+```
+
+### **Server-Side Pagination**
+
+```tsx
+import { DataTable } from '@e-burgos/tucutable';
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+
+function ServerPaginatedTable() {
+  const [pageIndex, setPageIndex] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
+
+  const { data, isLoading, totalCount } = useQuery({
+    queryKey: ['users', pageIndex, pageSize],
+    queryFn: () => fetchUsers(pageIndex, pageSize),
+  });
+
+  return (
+    <DataTable
+      tableId="server-paginated"
+      data={data || []}
+      columns={columns}
+      isLoading={isLoading}
+      pagination={{
+        serverPagination: {
+          totalCount: totalCount || 0,
+          setPagination: (pagination) => {
+            setPageIndex(pagination.pageIndex);
+            setPageSize(pagination.pageSize);
+          },
+          pagination: { pageIndex, pageSize },
+        },
+      }}
+    />
+  );
+}
+```
+
+## 🎨 Theming
+
+The DataTable component supports both dark and light themes:
+
+```tsx
+// Light theme
+<DataTable mode="light" ... />
+
+// Dark theme (default)
+<DataTable mode="dark" ... />
+
+// Or via data attribute
+<div data-theme="light">
+  <DataTable ... />
+</div>
+```
+
+## 🔧 Using the Context
+
+Access the table context from any child component:
+
+```tsx
+import { useDataTableContext } from '@e-burgos/tucutable';
+
+function CustomCell() {
+  const context = useDataTableContext();
+
+  if (!context) return null;
+
+  const {
+    tableState, // Current table state
+    actions, // Table actions
+    table, // TanStack Table instance
+    utils, // Utility flags
+  } = context;
+
+  // Use the context...
+  return <div>Custom Cell Content</div>;
+}
+```
+
+## 📚 Available Hooks
+
+```tsx
+import {
+  useDataTableStore,
+  useScrollableTable,
+  useGetCommonPinningStyles,
+  useComponentEventListener,
+  useColumns,
+} from '@e-burgos/tucutable';
+
+// State management
+const store = useDataTableStore(tableId);
+
+// Scroll management
+const scrollProps = useScrollableTable(tableContainerRef);
+
+// Pinning styles
+const { pinStyles, isPinned } = useGetCommonPinningStyles(column);
+
+// Event handling
+const { element } = useComponentEventListener(`${tableId}-container`);
+
+// Column processing
+const processedColumns = useColumns({
+  columns: defaultColumns,
+  containerWidth,
+  offset,
+  columnVisibility,
+});
+```
+
+## 🎯 Column Features
+
+### **Column Sorting**
+
+```tsx
+const columns: TanstackTable.ColumnDef<User>[] = [
+  {
+    accessorKey: 'name',
+    header: 'Name',
+    enableSorting: true, // Enable sorting
+  },
+];
+```
+
+### **Column Pinning**
+
+```tsx
+const columns: TanstackTable.ColumnDef<User>[] = [
+  {
+    accessorKey: 'id',
+    header: 'ID',
+    enablePinning: true, // Enable pinning
+  },
+];
+```
+
+### **Column Resizing**
+
+```tsx
+const columns: TanstackTable.ColumnDef<User>[] = [
+  {
+    accessorKey: 'name',
+    header: 'Name',
+    size: 200, // Default size
+    minSize: 100, // Minimum size
+    maxSize: 500, // Maximum size
+    enableResizing: true,
+  },
+];
+```
+
+### **Column Visibility**
+
+```tsx
+const columns: TanstackTable.ColumnDef<User>[] = [
+  {
+    accessorKey: 'email',
+    header: 'Email',
+    enableHiding: true, // Can be hidden
+  },
+];
+```
+
+## 🎨 Custom Styling
+
+### **Via Props**
+
+```tsx
+<DataTable
+  sx={{
+    row: { backgroundColor: 'var(--color-table-row-bg)' },
+    cell: { padding: '12px' },
+    wrapper: { border: '1px solid var(--color-table-divider)' },
+  }}
+/>
+```
+
+### **Via CSS Variables**
+
+```css
+:root {
+  --color-table-primary: #2196f3;
+  --color-table-row-bg: #1a1c20;
+  --color-table-header-bg: #2a2d31;
+}
+```
+
+## 📖 What's Next?
+
+Explore the documentation to learn more about:
+
+- **Component API**: Detailed props and usage examples
+- **Context API**: How to use the DataTable context
+- **Hooks**: Available hooks and their usage
+- **Styling**: Customization options and theming
+- **Advanced Features**: Drag & drop, nested tables, export functionality
+- **Performance**: Optimization tips and best practices
+- **Accessibility**: Built-in accessibility features and best practices
+
+Ready to build something amazing? Start exploring the components in the sidebar!
+
+<style>
+  {`
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 50px;
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+      border: 1px solid #E0E0E0;
+    }
+    .header > img {
+      max-width: 500px;
+      width: 100%;
+    }
+  `}
+</style>
