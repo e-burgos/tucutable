@@ -4,9 +4,9 @@ A modern, comprehensive React data table component library built with TypeScript
 
 ## 📚 Storybook & Documentation
 
-- **📚 [Live Documentation](https://main--683712ba90eaad206f988c65.chromatic.com/?path=/docs/1-documentation-1-introduction--documentation)** - Complete component documentation
-- **🎨 [Interactive Storybook](https://main--683712ba90eaad206f988c65.chromatic.com/)** - Explore components in action
-- **🔧 [Component Examples](https://main--683712ba90eaad206f988c65.chromatic.com/?path=/story/ui-components-buttons-button--default)** - See all variations and use cases
+- **📚 [Live Documentation](https://tucutable.netlify.app/)** - Complete component documentation
+- **🎨 [Interactive Storybook](https://main--6933183ea79916662a243110.chromatic.com/)** - Documentation in Storybook
+- **🔧 [Component Examples](https://main--6933183ea79916662a243110.chromatic.com/?path=/story/examples-tucutable--default)** - See all variations and use cases
 
 ---
 
