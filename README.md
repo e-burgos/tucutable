@@ -1113,7 +1113,7 @@ function App() {
 
 ### DataTable Props
 
-See the [full API documentation](https://main--683712ba90eaad206f988c65.chromatic.com/?path=/docs/1-documentation-1-introduction--documentation) for complete prop definitions.
+See the [full API documentation](https://main--6933183ea79916662a243110.chromatic.com/?path=/docs/examples-tucutable--documentation) for complete prop definitions.
 
 ---
 
@@ -1125,7 +1125,7 @@ Contributions are welcome! Please read our contributing guidelines before submit
 
 ## License
 
-[Your License Here]
+MIT License
 
 ---
 
