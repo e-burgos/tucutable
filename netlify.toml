@@ -7,4 +7,4 @@
 [build]
   base = "/"
   command = "pnpm install && pnpm nx build demo"
-  publish = "apps/demo/dist"
+  publish = "dist/apps/demo"
