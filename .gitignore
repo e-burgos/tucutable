@@ -41,11 +41,6 @@ Thumbs.db
 .nx/cache
 .nx/workspace-data
 
-.cursor
-.cursor/rules/nx-rules.mdc
-.github/instructions/nx.instructions.md
-.cursorrules
-
 .env
 .env.local
 .env.development.local
@@ -62,3 +57,6 @@ CLAUDE.md
 # npm pack files
 *.tgz
 *.tar.gz
+.nx/polygraph
+.claude/worktrees
+.claude/settings.local.json

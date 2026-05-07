@@ -5,5 +5,6 @@
   NX_SKIP_NX_CACHE = "true"
 
 [build]
-  command = "pnpm install && pnpm run build"
-  publish = "dist"
+  base = "/"
+  command = "pnpm install && pnpm nx build demo"
+  publish = "dist/apps/demo"

@@ -16,15 +16,15 @@ export interface UseStarWarsPeopleReturn {
   isFetching: boolean;
 }
 
-const SWAPI_BASE_URL = 'https://swapi.dev/api/people';
+const SWAPI_BASE_URL = 'https://swapi.py4e.com/api/people';
 
 async function fetchStarWarsPeople(
-  pagination: TanstackTable.PaginationState
+  pagination: TanstackTable.PaginationState,
 ): Promise<StarWarsApiResponse> {
   const response = await fetch(
     `${SWAPI_BASE_URL}/?page=${pagination.pageIndex + 1}&size=${
       pagination.pageSize
-    }&format=json`
+    }&format=json`,
   );
 
   if (!response.ok) {
