@@ -277,10 +277,10 @@ function DataTableComponent<T extends TData = TData>({
                                     renderSubDataTable={renderSubDataTable}
                                   />
                                 ) : (
-                                  renderSubComponent?.({
+                                  (renderSubComponent?.({
                                     row,
                                     columns: table.getAllColumns(),
-                                  })
+                                  }) ?? null) as React.ReactNode
                                 )}
                               </div>
                             </div>

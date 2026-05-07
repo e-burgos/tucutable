@@ -47,10 +47,10 @@ const TableWrapper: React.FC<TableWrapperProps> = ({
   containerWidth,
   mode,
 }) => {
-  const shouldShowBorder =
-    border === true || (border === undefined && (title || headerContainer));
+  const shouldShowBorder = !!(border === true ||
+    (border === undefined && (title || headerContainer)));
 
-  const shouldShowBorderRadius = border || title || headerContainer;
+  const shouldShowBorderRadius = !!(border || title || headerContainer);
 
   return (
     <div
