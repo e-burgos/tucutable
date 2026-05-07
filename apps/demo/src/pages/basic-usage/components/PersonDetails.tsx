@@ -10,7 +10,7 @@ export function PersonDetails({ person }: PersonDetailsProps) {
     <CardContainer className="p-4 m-2">
       <div className="space-y-4">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
+          <div className="w-12 h-12 bg-linear-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
             <LucideIcons.User className="w-6 h-6 text-white" />
           </div>
           <Typography tag="h3" className="text-xl font-bold">
@@ -21,7 +21,7 @@ export function PersonDetails({ person }: PersonDetailsProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <LucideIcons.Ruler className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <LucideIcons.Ruler className="w-4 h-4 text-muted-foreground" />
               <Typography tag="span" className="text-sm font-medium">
                 Height:
               </Typography>
@@ -33,7 +33,7 @@ export function PersonDetails({ person }: PersonDetailsProps) {
             </div>
 
             <div className="flex items-center gap-2">
-              <LucideIcons.Scale className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <LucideIcons.Scale className="w-4 h-4 text-muted-foreground" />
               <Typography tag="span" className="text-sm font-medium">
                 Mass:
               </Typography>
@@ -43,7 +43,7 @@ export function PersonDetails({ person }: PersonDetailsProps) {
             </div>
 
             <div className="flex items-center gap-2">
-              <LucideIcons.Calendar className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <LucideIcons.Calendar className="w-4 h-4 text-muted-foreground" />
               <Typography tag="span" className="text-sm font-medium">
                 Birth Year:
               </Typography>
@@ -53,7 +53,7 @@ export function PersonDetails({ person }: PersonDetailsProps) {
             </div>
 
             <div className="flex items-center gap-2">
-              <LucideIcons.User className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <LucideIcons.User className="w-4 h-4 text-muted-foreground" />
               <Typography tag="span" className="text-sm font-medium">
                 Gender:
               </Typography>
@@ -65,7 +65,7 @@ export function PersonDetails({ person }: PersonDetailsProps) {
 
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <LucideIcons.Palette className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <LucideIcons.Palette className="w-4 h-4 text-muted-foreground" />
               <Typography tag="span" className="text-sm font-medium">
                 Hair Color:
               </Typography>
@@ -75,7 +75,7 @@ export function PersonDetails({ person }: PersonDetailsProps) {
             </div>
 
             <div className="flex items-center gap-2">
-              <LucideIcons.Palette className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <LucideIcons.Palette className="w-4 h-4 text-muted-foreground" />
               <Typography tag="span" className="text-sm font-medium">
                 Skin Color:
               </Typography>
@@ -85,7 +85,7 @@ export function PersonDetails({ person }: PersonDetailsProps) {
             </div>
 
             <div className="flex items-center gap-2">
-              <LucideIcons.Eye className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <LucideIcons.Eye className="w-4 h-4 text-muted-foreground" />
               <Typography tag="span" className="text-sm font-medium">
                 Eye Color:
               </Typography>
@@ -95,7 +95,7 @@ export function PersonDetails({ person }: PersonDetailsProps) {
             </div>
 
             <div className="flex items-center gap-2">
-              <LucideIcons.Film className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <LucideIcons.Film className="w-4 h-4 text-muted-foreground" />
               <Typography tag="span" className="text-sm font-medium">
                 Films:
               </Typography>

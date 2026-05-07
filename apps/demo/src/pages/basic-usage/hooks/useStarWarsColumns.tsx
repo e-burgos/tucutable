@@ -14,7 +14,7 @@ export function useStarWarsColumns() {
             const value = info.getValue();
             return (
               <div className="flex items-center gap-2">
-                <LucideIcons.User className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                <LucideIcons.User className="w-4 h-4 text-muted-foreground" />
                 <span className="font-medium">{value}</span>
               </div>
             );
@@ -33,7 +33,7 @@ export function useStarWarsColumns() {
                 {numValue ? (
                   `${numValue} cm`
                 ) : (
-                  <span className="text-gray-400">Unknown</span>
+                  <span className="text-muted-foreground">Unknown</span>
                 )}
               </div>
             );
@@ -64,7 +64,7 @@ export function useStarWarsColumns() {
                 {numValue ? (
                   `${numValue} kg`
                 ) : (
-                  <span className="text-gray-400">Unknown</span>
+                  <span className="text-muted-foreground">Unknown</span>
                 )}
               </div>
             );
@@ -91,24 +91,24 @@ export function useStarWarsColumns() {
             return (
               <div className="flex items-center gap-2">
                 <div
-                  className="w-4 h-4 rounded-full border border-gray-300 dark:border-gray-600"
+                  className="w-4 h-4 rounded-full border border-border"
                   style={{
                     backgroundColor:
                       value === 'blond'
                         ? '#fbbf24'
                         : value === 'brown'
-                        ? '#92400e'
-                        : value === 'black'
-                        ? '#1f2937'
-                        : value === 'auburn'
-                        ? '#991b1b'
-                        : value === 'white'
-                        ? '#f3f4f6'
-                        : value === 'grey'
-                        ? '#6b7280'
-                        : value === 'n/a' || value === 'none'
-                        ? 'transparent'
-                        : '#9ca3af',
+                          ? '#92400e'
+                          : value === 'black'
+                            ? '#1f2937'
+                            : value === 'auburn'
+                              ? '#991b1b'
+                              : value === 'white'
+                                ? '#f3f4f6'
+                                : value === 'grey'
+                                  ? '#6b7280'
+                                  : value === 'n/a' || value === 'none'
+                                    ? 'transparent'
+                                    : '#9ca3af',
                   }}
                 />
                 <span className="capitalize">{value}</span>
@@ -136,22 +136,22 @@ export function useStarWarsColumns() {
             return (
               <div className="flex items-center gap-2">
                 <div
-                  className="w-4 h-4 rounded-full border border-gray-300 dark:border-gray-600"
+                  className="w-4 h-4 rounded-full border border-border"
                   style={{
                     backgroundColor:
                       value === 'blue'
                         ? '#3b82f6'
                         : value === 'yellow'
-                        ? '#eab308'
-                        : value === 'red'
-                        ? '#ef4444'
-                        : value === 'brown'
-                        ? '#92400e'
-                        : value === 'orange'
-                        ? '#f97316'
-                        : value === 'hazel'
-                        ? '#a16207'
-                        : '#9ca3af',
+                          ? '#eab308'
+                          : value === 'red'
+                            ? '#ef4444'
+                            : value === 'brown'
+                              ? '#92400e'
+                              : value === 'orange'
+                                ? '#f97316'
+                                : value === 'hazel'
+                                  ? '#a16207'
+                                  : '#9ca3af',
                   }}
                 />
                 <span className="capitalize">{value}</span>
@@ -169,7 +169,7 @@ export function useStarWarsColumns() {
             return (
               <div className="font-mono text-sm">
                 {value === 'unknown' ? (
-                  <span className="text-gray-400">Unknown</span>
+                  <span className="text-muted-foreground">Unknown</span>
                 ) : (
                   value
                 )}
@@ -193,7 +193,7 @@ export function useStarWarsColumns() {
                   <LucideIcons.User className="w-4 h-4 text-pink-500" />
                 )}
                 {value === 'n/a' && (
-                  <LucideIcons.Minus className="w-4 h-4 text-gray-400" />
+                  <LucideIcons.Minus className="w-4 h-4 text-muted-foreground" />
                 )}
                 <span className="capitalize">
                   {value === 'n/a' ? 'N/A' : value}
@@ -211,7 +211,7 @@ export function useStarWarsColumns() {
             const films = info.getValue();
             return (
               <div className="flex items-center gap-1">
-                <LucideIcons.Film className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                <LucideIcons.Film className="w-4 h-4 text-muted-foreground" />
                 <span>{films.length}</span>
               </div>
             );
@@ -223,6 +223,6 @@ export function useStarWarsColumns() {
           size: 100,
         },
       ] as TanstackTable.ColumnDef<StarWarsPerson>[],
-    []
+    [],
   );
 }

@@ -41,9 +41,9 @@ export const TableHeaderContainer = ({
         )}
       </div>
       {showHiddenColumns && (
-        <div className="flex items-center justify-between w-full gap-2 border border-gray-200 dark:border-gray-700 rounded-md p-2">
+        <div className="flex items-center justify-between w-full gap-2 border border-border rounded-md p-2">
           <div className="flex items-center gap-2">
-            <span className="text-base text-gray-500 dark:text-gray-200 font-bold">
+            <span className="text-base text-muted-foreground font-bold">
               All Columns
             </span>
           </div>
@@ -63,10 +63,10 @@ export const TableHeaderContainer = ({
                     {id}
                   </button>
                 );
-              }
+              },
             )}
             <button
-              className="bg-green-500/80 text-white px-2 py-1 rounded-md hover:bg-green-500 transition-all duration-200 ease-in-out hover:cursor-pointer"
+              className="bg-success/80 text-white px-2 py-1 rounded-md hover:bg-success transition-all duration-200 ease-in-out hover:cursor-pointer"
               onClick={() => toggleAllColumnsVisibility()}
             >
               Toggle All Columns
